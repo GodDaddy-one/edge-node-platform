@@ -1,0 +1,9 @@
+<view class="page">
+  <view class="card" wx:for="{{messages}}" wx:key="title">
+    <view class="list-item">
+      <view style="font-weight:600;">{{item.title}}</view>
+      <view class="muted">{{item.time}}</view>
+      <view>{{item.desc}}</view>
+    </view>
+  </view>
+</view>

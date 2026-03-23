@@ -1,0 +1,19 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Backend runtime
+rebuild-backend/node_modules/
+rebuild-backend/.env
+rebuild-backend/data/
+
+# Miniapp local private config
+rebuild-miniapp/project.private.config.json
+
+# Optional local caches
+.cache/
+dist/

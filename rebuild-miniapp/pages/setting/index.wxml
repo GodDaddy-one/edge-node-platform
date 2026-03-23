@@ -1,0 +1,12 @@
+<view class="page">
+  <view class="card">
+    <view class="section-title">收益调节阀</view>
+    <view class="muted">这里是中端代理收益比例。100 代表同步原始收益，80 代表前端展示为原始收益的 80%。</view>
+  </view>
+
+  <view class="card" style="margin-top: 24rpx;">
+    <view class="muted">当前收益比例 (%)</view>
+    <input class="input" type="digit" value="{{incomeAdjustRate}}" bindinput="onRateInput" placeholder="请输入比例，例如 85" />
+    <button class="button-primary" loading="{{saving}}" bindtap="saveRate" style="margin-top: 24rpx;">保存比例</button>
+  </view>
+</view>

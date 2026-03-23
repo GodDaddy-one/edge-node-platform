@@ -1,0 +1,12 @@
+<view class="page">
+  <view class="card">
+    <view class="section-title">基础信息</view>
+    <view class="form-label">企业名称</view>
+    <input class="input" data-field="company" bindinput="onInput" value="{{company}}" />
+    <view class="form-label" style="margin-top:24rpx;">联系人</view>
+    <input class="input" data-field="contact" bindinput="onInput" value="{{contact}}" />
+    <view class="form-label" style="margin-top:24rpx;">银行卡号</view>
+    <input class="input" data-field="bankNo" bindinput="onInput" value="{{bankNo}}" />
+    <button class="button-primary" style="margin-top:32rpx;" bindtap="submit">保存</button>
+  </view>
+</view>

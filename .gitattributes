@@ -1,0 +1,23 @@
+* text=auto
+
+# Keep Linux shell scripts on LF
+*.sh text eol=lf
+
+# Keep source and config files normalized
+*.js text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.env text eol=lf
+*.example text eol=lf
+*.wxss text eol=lf
+*.wxml text eol=lf
+*.toml text eol=lf
+
+# Binary assets
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary

@@ -1,0 +1,90 @@
+<view class="page">
+  <view class="card hero">
+    <view class="hero-title">{{labels.heroTitle}}</view>
+    <view class="hero-subtitle">{{labels.heroSubtitle}}</view>
+  </view>
+
+  <view class="banner-card" wx:if="{{banners.length}}" bindtap="showComingSoon">
+    <view>
+      <view class="banner-title">{{banners[0].title}}</view>
+      <view class="banner-subtitle">{{labels.bannerSubtitle}}</view>
+    </view>
+    <view class="banner-action">{{banners[0].actionText}}</view>
+  </view>
+
+  <view class="section-title">{{labels.incomeSection}}</view>
+  <view class="card income-panel">
+    <view class="income-col">
+      <view class="income-label">{{labels.totalIncome}}</view>
+      <view class="income-value">{{income.totalIncome}}</view>
+    </view>
+    <view class="income-col">
+      <view class="income-label">{{labels.yesterdayIncome}}</view>
+      <view class="income-value">{{income.yesterdayIncome}}</view>
+    </view>
+    <view class="income-btn" data-path="/pages/income/detail/detail" bindtap="goTo">{{labels.incomeDetail}}</view>
+  </view>
+
+  <view class="card notice-card" wx:if="{{notices.length}}">
+    <view class="notice-row">
+      <view class="notice-dot"></view>
+      <view class="muted">{{notices[0]}}</view>
+    </view>
+  </view>
+
+  <view class="section-title">{{labels.deviceSection}}</view>
+  <view class="stats-grid">
+    <view class="card stat">
+      <view class="stat-value">{{deviceStats.total}}</view>
+      <view class="muted">{{labels.totalNodes}}</view>
+    </view>
+    <view class="card stat">
+      <view class="stat-value green">{{deviceStats.online}}</view>
+      <view class="muted">{{labels.onlineNodes}}</view>
+    </view>
+    <view class="card stat stat-clickable" data-network="离线" bindtap="openNodeFilter">
+      <view class="stat-value red">{{deviceStats.offline}}</view>
+      <view class="muted">{{labels.offlineNodes}}</view>
+    </view>
+    <view class="card stat stat-clickable" data-network="网络异常" bindtap="openNodeFilter">
+      <view class="stat-value orange">{{deviceStats.lineError}}</view>
+      <view class="muted">{{labels.lineErrorNodes}}</view>
+    </view>
+  </view>
+
+  <view class="section-title">{{labels.qualitySection}}</view>
+  <view class="stats-grid stats-grid-three">
+    <view class="card stat">
+      <view class="stat-value green">{{qualityStats.excellent}}</view>
+      <view class="muted">{{labels.excellent}}</view>
+    </view>
+    <view class="card stat">
+      <view class="stat-value orange">{{qualityStats.medium}}</view>
+      <view class="muted">{{labels.medium}}</view>
+    </view>
+    <view class="card stat">
+      <view class="stat-value red">{{qualityStats.bad}}</view>
+      <view class="muted">{{labels.bad}}</view>
+    </view>
+  </view>
+
+  <view class="section-title">{{labels.processSection}}</view>
+  <view class="stats-grid">
+    <view class="card stat stat-clickable" data-phase="待配置网络" bindtap="openNodeFilter">
+      <view class="stat-value orange">{{processStats.waitingForConfigNetwork}}</view>
+      <view class="muted">{{labels.waitingForConfigNetwork}}</view>
+    </view>
+    <view class="card stat stat-clickable" data-phase="待测试" bindtap="openNodeFilter">
+      <view class="stat-value orange">{{processStats.waitingForTest}}</view>
+      <view class="muted">{{labels.waitingForTest}}</view>
+    </view>
+    <view class="card stat">
+      <view class="stat-value">{{processStats.serving}}</view>
+      <view class="muted">{{labels.serving}}</view>
+    </view>
+    <view class="card stat">
+      <view class="stat-value red">{{processStats.waitingAbandoned}}</view>
+      <view class="muted">{{labels.waitingAbandoned}}</view>
+    </view>
+  </view>
+</view>

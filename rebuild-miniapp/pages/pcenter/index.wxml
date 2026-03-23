@@ -1,0 +1,17 @@
+<view class="page">
+  <view class="card">
+    <view style="font-size: 40rpx; font-weight: 700;">{{user.name}}</view>
+    <view class="muted">{{user.mobile}}</view>
+    <view class="muted" wx:if="{{sourceStatus.bound && sourceStatus.valid}}" style="margin-top: 16rpx;">
+      {{labels.sourceOk}}
+    </view>
+    <view class="muted red" wx:if="{{sourceStatus.bound && !sourceStatus.valid}}" style="margin-top: 16rpx;">
+      {{labels.sourceInvalid}}
+    </view>
+  </view>
+  <view class="card" style="margin-top: 24rpx;">
+    <view class="list-item" wx:for="{{menus}}" wx:key="title" data-path="{{item.path}}" bindtap="open">
+      <view>{{item.title}}</view>
+    </view>
+  </view>
+</view>

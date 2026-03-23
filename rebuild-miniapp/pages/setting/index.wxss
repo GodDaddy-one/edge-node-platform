@@ -1,0 +1,8 @@
+.input {
+  margin-top: 20rpx;
+  height: 88rpx;
+  border-radius: 18rpx;
+  background: #f5f7fb;
+  padding: 0 24rpx;
+  font-size: 30rpx;
+}

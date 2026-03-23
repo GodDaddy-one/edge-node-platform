@@ -1,0 +1,10 @@
+<view class="page">
+  <view class="card">
+    <view class="section-title">设备绑定</view>
+    <view class="form-label">设备 ID</view>
+    <input class="input" placeholder="请输入设备 UUID 或扫码录入" bindinput="onInput" value="{{deviceUUID}}" />
+    <view class="form-label" style="margin-top: 24rpx;">调度策略</view>
+    <view class="input" style="display:flex;align-items:center;">{{provinceDispatch}}</view>
+    <button class="button-primary" style="margin-top:32rpx;" bindtap="submit">提交绑定</button>
+  </view>
+</view>

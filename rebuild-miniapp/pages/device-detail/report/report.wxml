@@ -1,0 +1,93 @@
+<view class="page">
+  <view class="date-row">
+    <view class="date-card">
+      <view class="date-label">开始时间：</view>
+      <view class="date-value">{{startDate}}</view>
+    </view>
+    <view class="date-card">
+      <view class="date-label">结束时间：</view>
+      <view class="date-value">{{endDate}}</view>
+    </view>
+  </view>
+
+  <view class="card monitor-card" wx:if="{{summary}}">
+    <view class="uuid-row">
+      <view class="uuid-label">节点ID</view>
+      <view class="uuid-text">{{summary.uuid}}</view>
+    </view>
+
+    <view class="tab-row">
+      <view class="tab-group">
+        <view
+          wx:for="{{periodTabs}}"
+          wx:key="key"
+          class="period-tab {{activePeriod === item.key ? 'period-tab-active' : ''}}"
+          data-key="{{item.key}}"
+          bindtap="switchPeriod"
+        >
+          {{item.label}}
+        </view>
+      </view>
+      <view class="range-group">
+        <view
+          wx:for="{{granularityTabs}}"
+          wx:key="key"
+          class="range-tab {{activeGranularity === item.key ? 'range-tab-active' : ''}}"
+          data-key="{{item.key}}"
+          bindtap="switchGranularity"
+        >
+          {{item.label}}
+        </view>
+      </view>
+    </view>
+
+    <view class="section-title">上下行带宽</view>
+    <view class="chart-empty">
+      <view class="chart-empty-title">暂无数据</view>
+    </view>
+
+    <view class="section-title">网络信息</view>
+    <view class="info-grid">
+      <view class="info-item">
+        <view class="info-label">网络状态</view>
+        <view class="info-value">{{summary.onlineStatus}}</view>
+      </view>
+      <view class="info-item">
+        <view class="info-label">运营商</view>
+        <view class="info-value">{{summary.isp}}</view>
+      </view>
+      <view class="info-item">
+        <view class="info-label">地区</view>
+        <view class="info-value">{{summary.location}}</view>
+      </view>
+      <view class="info-item">
+        <view class="info-label">NAT 类型</view>
+        <view class="info-value">{{summary.natType}}</view>
+      </view>
+      <view class="info-item">
+        <view class="info-label">上报带宽</view>
+        <view class="info-value">{{summary.reportBandwidth}}</view>
+      </view>
+      <view class="info-item">
+        <view class="info-label">测试带宽</view>
+        <view class="info-value">{{summary.testBandwidth}}</view>
+      </view>
+    </view>
+
+    <view class="section-title">资源使用率</view>
+    <view class="stats-grid">
+      <view class="metric-card">
+        <view class="metric-label">CPU 利用率</view>
+        <view class="metric-value">{{summary.cpuUsage}}</view>
+      </view>
+      <view class="metric-card">
+        <view class="metric-label">内存利用率</view>
+        <view class="metric-value">{{summary.memoryUsage}}</view>
+      </view>
+      <view class="metric-card">
+        <view class="metric-label">磁盘利用率</view>
+        <view class="metric-value">{{summary.diskUsage}}</view>
+      </view>
+    </view>
+  </view>
+</view>

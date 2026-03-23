@@ -1,0 +1,54 @@
+page {
+  background: #f6f8fb;
+  color: #1f2937;
+  font-size: 28rpx;
+}
+
+.page {
+  padding: 24rpx;
+}
+
+.card {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 24rpx;
+  box-shadow: 0 12rpx 40rpx rgba(31, 41, 55, 0.06);
+}
+
+.section-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  margin-bottom: 20rpx;
+}
+
+.muted {
+  color: #6b7280;
+}
+
+.button-primary {
+  background: linear-gradient(135deg, #2e5bff, #1e88ff);
+  color: #fff;
+  border-radius: 18rpx;
+}
+
+.form-label {
+  font-size: 24rpx;
+  color: #6b7280;
+  margin-bottom: 12rpx;
+}
+
+.input {
+  height: 88rpx;
+  border-radius: 18rpx;
+  background: #f3f5f9;
+  padding: 0 24rpx;
+}
+
+.list-item {
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #eef2f7;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}

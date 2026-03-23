@@ -1,0 +1,106 @@
+{
+  "entryPagePath": "pages/index/index",
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/device/list/list",
+    "pages/device/bind/bind",
+    "pages/device/node-config/index",
+    "pages/device/select-business/index",
+    "pages/pcenter/index",
+    "pages/income/detail/detail",
+    "pages/message/index",
+    "pages/helpcenter/index/index"
+  ],
+  "subPackages": [
+    {
+      "root": "pages/setting",
+      "pages": ["index"]
+    },
+    {
+      "root": "pages/business",
+      "pages": ["index", "filter-devices/index", "evaluation-result/index"]
+    },
+    {
+      "root": "pages/business-switch",
+      "pages": ["index", "detail/index", "suggestion/index"]
+    },
+    {
+      "root": "pages/dial",
+      "pages": ["info/info", "update/update", "netcard/netcard", "config/index"]
+    },
+    {
+      "root": "pages/device-detail",
+      "pages": ["detail/detail", "report/report", "stress-test-detail/index", "bandwidth-test/index"]
+    },
+    {
+      "root": "pages/qualification",
+      "pages": ["index"]
+    },
+    {
+      "root": "pages/quality",
+      "pages": ["index", "detail/index"]
+    },
+    {
+      "root": "pages/user",
+      "pages": ["register/register", "password/reset/reset", "password/update/update", "logout/logout", "source-token/index"]
+    },
+    {
+      "root": "pages/common",
+      "pages": ["CommonWebview"]
+    },
+    {
+      "root": "pages/imageWebView",
+      "pages": ["index"]
+    },
+    {
+      "root": "pages/chart",
+      "pages": ["chart"]
+    }
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f6f8fb",
+    "backgroundTextStyle": "light"
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "tabBar": {
+    "color": "#8A959E",
+    "selectedColor": "#2e5bff",
+    "backgroundColor": "#fdfdfd",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/tabbar/index.png",
+        "selectedIconPath": "assets/tabbar/index.selected.png"
+      },
+      {
+        "pagePath": "pages/device/list/list",
+        "text": "节点",
+        "iconPath": "assets/tabbar/node.png",
+        "selectedIconPath": "assets/tabbar/node.selected.png"
+      },
+      {
+        "pagePath": "pages/device/bind/bind",
+        "text": "绑定",
+        "iconPath": "assets/tabbar/bind.png",
+        "selectedIconPath": "assets/tabbar/bind.selected.png"
+      },
+      {
+        "pagePath": "pages/helpcenter/index/index",
+        "text": "帮助",
+        "iconPath": "assets/tabbar/help.png",
+        "selectedIconPath": "assets/tabbar/help.selected.png"
+      },
+      {
+        "pagePath": "pages/pcenter/index",
+        "text": "我的",
+        "iconPath": "assets/tabbar/pcenter.png",
+        "selectedIconPath": "assets/tabbar/pcenter.selected.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

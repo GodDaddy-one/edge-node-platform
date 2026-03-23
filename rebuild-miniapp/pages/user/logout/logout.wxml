@@ -1,0 +1,1 @@
+<view class="page"><view class="card"><view class="section-title">退出登录</view><view class="muted">清空本地登录态并返回登录页。</view><button class="button-primary" style="margin-top:32rpx;" bindtap="confirmLogout">确认退出</button></view></view>

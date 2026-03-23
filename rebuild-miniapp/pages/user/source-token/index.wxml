@@ -1,0 +1,16 @@
+<view class="page">
+  <view class="card">
+    <view class="section-title">原平台 Token 绑定</view>
+    <view class="muted">建议把 token 交给你自己的后端保存，再由后端代理原平台接口。</view>
+    <view class="form-label" style="margin-top: 24rpx;">Bearer Token</view>
+    <textarea class="input" style="height: 280rpx; padding-top: 20rpx;" maxlength="-1" placeholder="粘贴原平台 Bearer token" bindinput="onInput" value="{{token}}"></textarea>
+    <button class="button-primary" style="margin-top: 32rpx;" loading="{{saving}}" bindtap="submit">验证并绑定</button>
+  </view>
+
+  <view class="card" style="margin-top: 24rpx;" wx:if="{{profile}}">
+    <view class="section-title">授权信息</view>
+    <view class="muted">{{profile.sourceUsername || profile.username || '已绑定'}}</view>
+    <view class="muted">UID: {{profile.sourceUid || profile.uid || '--'}}</view>
+    <view class="muted">角色: {{profile.role || '--'}}</view>
+  </view>
+</view>

@@ -1,0 +1,146 @@
+<view class="detail-page" wx:if="{{detail}}">
+  <view class="hero-bg"></view>
+
+  <view class="detail-card top-card">
+    <view class="top-line">
+      <view class="id-block">
+        <view class="id-row">
+          <text class="id-tag">节点ID</text>
+          <text class="id-text">{{detail.uuid}}</text>
+        </view>
+        <view class="node-name">节点名: {{detail.name}}</view>
+      </view>
+      <view class="copy-link" bindtap="copyUuid">复制</view>
+    </view>
+
+    <view class="income-title">本月收益</view>
+    <view class="income-value">{{detail.monthIncome}}</view>
+
+    <view class="summary-grid">
+      <view class="summary-col">
+        <view class="summary-label">绑定时间</view>
+        <view class="summary-value">{{detail.bindTime}}</view>
+      </view>
+      <view class="summary-col">
+        <view class="summary-label">网络</view>
+        <view class="summary-value">{{detail.networkStatus}}</view>
+        <view class="mini-btn" bindtap="openReport">监控</view>
+      </view>
+      <view class="summary-col">
+        <view class="summary-label">当前阶段</view>
+        <view class="summary-value">{{detail.currentPhase}}</view>
+      </view>
+    </view>
+
+    <view class="remark-row">
+      <view class="summary-label">备注: {{detail.remark}}</view>
+      <view class="copy-link" bindtap="saveRemark">保存</view>
+    </view>
+    <input class="remark-input" placeholder="修改备注" bindinput="onRemarkInput" value="{{detail.remark}}" />
+  </view>
+
+  <view class="tab-bar">
+    <view
+      wx:for="{{tabs}}"
+      wx:key="key"
+      class="tab-item {{activeTab === item.key ? 'tab-item-active' : ''}}"
+      data-key="{{item.key}}"
+      bindtap="switchTab"
+    >
+      {{item.label}}
+    </view>
+  </view>
+
+  <view class="detail-card" wx:if="{{activeTab === 'quality'}}">
+    <view class="section-row">
+      <view>收益</view>
+      <view>{{detail.monthIncome}}</view>
+    </view>
+    <view class="section-row">
+      <view>设备诊断</view>
+      <view>-</view>
+    </view>
+    <view class="section-title">硬件质量</view>
+    <view class="table-card">
+      <view class="table-head">
+        <view>磁盘名</view>
+        <view>类型</view>
+        <view>IOPS</view>
+      </view>
+      <view class="table-empty">暂无数据</view>
+    </view>
+    <view class="section-row">
+      <view>CPU利用率</view>
+      <view>-</view>
+    </view>
+    <view class="section-row">
+      <view>内存利用率</view>
+      <view>-</view>
+    </view>
+    <view class="section-title">网络质量</view>
+    <view class="section-row">
+      <view>在线率</view>
+      <view>{{detail.utilizationRate}}</view>
+    </view>
+    <view class="section-row">
+      <view>NAT类型</view>
+      <view>{{detail.natType}}</view>
+    </view>
+    <view class="section-row">
+      <view>最大丢包率</view>
+      <view>{{detail.lossRate}}</view>
+    </view>
+    <view class="section-row">
+      <view>最大时延</view>
+      <view>{{detail.latency}}</view>
+    </view>
+  </view>
+
+  <view class="detail-card" wx:if="{{activeTab === 'network'}}">
+    <view class="section-row"><view>IP</view><view>{{detail.ip}}</view></view>
+    <view class="section-row"><view>运营商</view><view>{{detail.isp}}</view></view>
+    <view class="section-row"><view>省市</view><view>{{detail.location}}</view></view>
+    <view class="section-row"><view>网络类型</view><view>{{detail.networkType}}</view></view>
+    <view class="section-row"><view>网络配置</view><view>{{detail.networkConfigText}}</view></view>
+    <view class="section-row"><view>上报带宽</view><view>{{detail.reportBandwidth}}</view></view>
+    <view class="section-row"><view>测试带宽</view><view>{{detail.testBandwidth}}</view></view>
+    <view class="section-row"><view>测试日期</view><view>{{detail.testDate}}</view></view>
+    <view class="section-row"><view>是否IDC节点</view><view>{{detail.isIDC}}</view></view>
+  </view>
+
+  <view class="detail-card" wx:if="{{activeTab === 'hardware'}}">
+    <view class="section-row"><view>镜像版本</view><view>{{detail.version}}</view></view>
+    <view class="section-row"><view>设备类型</view><view>{{detail.deviceType}}</view></view>
+    <view class="section-row"><view>CPU型号</view><view>{{detail.cpuType}}</view></view>
+    <view class="section-row"><view>CPU核数</view><view>{{detail.cpuNum}}</view></view>
+    <view class="section-row"><view>主频</view><view>{{detail.cpuFrequency}}</view></view>
+    <view class="section-row"><view>内存</view><view>{{detail.memoryInfo}}</view></view>
+    <view class="section-title">硬盘</view>
+    <view class="disk-table">
+      <view class="disk-head">
+        <view>名称</view>
+        <view>空间大小（T）</view>
+        <view>类型</view>
+      </view>
+      <view class="disk-row" wx:for="{{detail.diskList}}" wx:key="name">
+        <view>{{item.name}}</view>
+        <view>{{item.size}}</view>
+        <view>{{item.type}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="detail-card" wx:if="{{activeTab === 'config'}}">
+    <view class="section-row">
+      <view>调度类型</view>
+      <view class="action-value" bindtap="changeDispatchType">{{detail.dispatchType}}</view>
+    </view>
+    <view class="section-row"><view>调度时间</view><view>{{detail.dispatchTime}}</view></view>
+    <view class="section-row"><view>IPv6调度</view><view>{{detail.ipv6Dispatch}}</view></view>
+    <view class="section-row">
+      <view>设备允许跨网</view>
+      <view class="action-value" bindtap="toggleCrossIsp">{{detail.allowCrossIsp}}</view>
+    </view>
+    <button class="button-primary" style="margin-top:24rpx;" bindtap="openDial">网络配置</button>
+  </view>
+</view>

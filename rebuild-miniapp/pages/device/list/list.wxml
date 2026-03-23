@@ -1,0 +1,81 @@
+<view class="page">
+  <view style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20rpx;">
+    <view class="section-title" style="margin-bottom:0;">{{labels.myNodes}}</view>
+    <view class="muted" wx:if="{{syncing}}">{{labels.syncing}}</view>
+  </view>
+
+  <view class="search-row">
+    <view class="search-box">
+      <view class="search-icon">{{labels.searching}}</view>
+      <input class="search-input" placeholder="{{labels.searchPlaceholder}}" bindinput="onKeywordInput" value="{{keyword}}" />
+    </view>
+    <view class="filter-btn" bindtap="openFilter">{{labels.filtering}}</view>
+  </view>
+
+  <view class="card" wx:if="{{loading}}">{{labels.loading}}</view>
+
+  <block wx:else>
+    <view class="card" wx:if="{{!filteredDevices.length}}">
+      <view class="muted">{{emptyMessage}}</view>
+      <view class="button-primary" wx:if="{{!sourceBound || !sourceValid}}" style="margin-top:24rpx;text-align:center;" bindtap="goBindSource">
+        {{labels.authAction}}
+      </view>
+    </view>
+
+    <view class="card" wx:for="{{filteredDevices}}" wx:key="uuid" data-uuid="{{item.uuid}}" bindtap="openDetail">
+      <view class="list-item">
+        <view style="display:flex;justify-content:space-between;align-items:flex-start;gap:20rpx;">
+          <view style="flex:1;">
+            <view style="font-weight:600;font-size:36rpx;">{{item.name}}</view>
+            <view class="muted">{{labels.bindTime}}: {{item.bindTime}}</view>
+            <view class="muted">{{labels.utilizationRate}}: {{item.utilizationRate}}</view>
+            <view class="uuid-line">
+              <text class="uuid-label">{{labels.uuid}}</text>
+              <text class="uuid-text">{{item.uuid}}</text>
+            </view>
+            <view class="muted">{{labels.status}}: {{item.networkStatus}} | {{labels.bandwidth}}: {{item.bandwidth}}</view>
+          </view>
+          <view style="min-width:140rpx;text-align:right;">
+            <view class="phase-text">{{item.currentPhase}}</view>
+            <view style="font-size:42rpx;font-weight:700;">{{item.yesterdayIncome}}</view>
+            <view class="muted">{{labels.yesterdayIncome}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <view class="filter-mask" wx:if="{{filterVisible}}" bindtap="closeFilter"></view>
+  <view class="filter-panel" wx:if="{{filterVisible}}">
+    <view class="filter-title">{{labels.filterTitlePhase}}</view>
+    <view class="tag-grid">
+      <view
+        class="tag {{selectedPhases.indexOf(item) > -1 ? 'tag-active' : ''}}"
+        wx:for="{{phaseOptions}}"
+        wx:key="*this"
+        data-value="{{item}}"
+        bindtap="togglePhase"
+      >
+        {{item}}
+      </view>
+    </view>
+
+    <view class="filter-title">{{labels.filterTitleNetwork}}</view>
+    <view class="tag-grid">
+      <view
+        class="tag {{selectedNetworks.indexOf(item) > -1 ? 'tag-active' : ''}}"
+        wx:for="{{networkOptions}}"
+        wx:key="*this"
+        data-value="{{item}}"
+        bindtap="toggleNetwork"
+      >
+        {{item}}
+      </view>
+    </view>
+
+    <view class="filter-actions">
+      <button class="ghost-btn" bindtap="resetFilters">{{labels.reset}}</button>
+      <button class="button-primary" bindtap="confirmFilters">{{labels.confirm}}</button>
+    </view>
+  </view>
+</view>

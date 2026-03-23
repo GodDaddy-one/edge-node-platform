@@ -1,0 +1,12 @@
+<view class="page">
+  <view class="card" wx:for="{{lines}}" wx:key="name">
+    <view class="list-item">
+      <view style="font-weight:600;">{{item.name}}</view>
+      <view class="muted">IP: {{item.ip}}</view>
+      <view class="muted">速率: {{item.speed}}</view>
+      <view class="muted">线路数: {{item.lineCount}}</view>
+      <view class="muted">{{item.isManager ? '管理线路' : '业务线路'}}</view>
+    </view>
+  </view>
+  <button class="button-primary" style="margin-top:24rpx;" bindtap="goUpdate">修改配置</button>
+</view>
