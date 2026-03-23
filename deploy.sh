@@ -1,7 +1,20 @@
-#!/usr/bin/env bash
+﻿#!/usr/bin/env bash
 set -euo pipefail
 
-REPO_URL="https://github.com/GodDaddy-one/edge-node-platform.git"
+GITEE_REPO_URL="https://gitee.com/GodDaddy-one/edge-node-platform.git"
+GITHUB_REPO_URL="https://github.com/GodDaddy-one/edge-node-platform.git"
+
+try_clone() {
+  local target_dir="$1"
+  echo "[deploy] Trying Gitee repository..."
+  if git clone "$GITEE_REPO_URL" "$target_dir"; then
+    REPO_URL="$GITEE_REPO_URL"
+    return 0
+  fi
+  echo "[deploy] Gitee clone failed, falling back to GitHub..."
+  git clone "$GITHUB_REPO_URL" "$target_dir"
+  REPO_URL="$GITHUB_REPO_URL"
+}
 INSTALL_ROOT="/opt/edge-node-platform"
 BACKEND_DIR="$INSTALL_ROOT/rebuild-backend"
 
@@ -42,7 +55,7 @@ run_backend_script() {
 install_action() {
   if [ "$(id -u)" -ne 0 ]; then
     echo "Please run install as root:"
-    echo "sudo bash <(curl -fsSL https://raw.githubusercontent.com/GodDaddy-one/edge-node-platform/main/deploy.sh)"
+    echo "sudo bash <(curl -fsSL https://gitee.com/GodDaddy-one/edge-node-platform/raw/main/deploy.sh)"
     exit 1
   fi
 
@@ -121,3 +134,5 @@ main() {
 }
 
 main "$@"
+
+

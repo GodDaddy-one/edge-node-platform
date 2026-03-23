@@ -162,7 +162,7 @@ pm2 stop rebuild-backend
 鍦?Linux VPS 涓婄洿鎺ユ墽琛岋細
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/GodDaddy-one/edge-node-platform/main/deploy.sh)
+bash <(curl -fsSL https://gitee.com/GodDaddy-one/edge-node-platform/raw/main/deploy.sh)
 ```
 
 鑴氭湰浼氬脊鍑鸿彍鍗曪細
@@ -175,17 +175,17 @@ bash <(curl -fsSL https://raw.githubusercontent.com/GodDaddy-one/edge-node-platf
 
 瀹夎锛?
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/GodDaddy-one/edge-node-platform/main/deploy.sh) install
+bash <(curl -fsSL https://gitee.com/GodDaddy-one/edge-node-platform/raw/main/deploy.sh) install
 ```
 
 鏇存柊锛?
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/GodDaddy-one/edge-node-platform/main/deploy.sh) update
+bash <(curl -fsSL https://gitee.com/GodDaddy-one/edge-node-platform/raw/main/deploy.sh) update
 ```
 
 鍗歌浇锛?
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/GodDaddy-one/edge-node-platform/main/deploy.sh) uninstall
+bash <(curl -fsSL https://gitee.com/GodDaddy-one/edge-node-platform/raw/main/deploy.sh) uninstall
 ```
 
 ### 鍚庢湡鏇存柊浠ｇ爜鏃惰涓嶈鏀硅剼鏈?
@@ -234,4 +234,5 @@ UPSTREAM_LOGIN_MAGIC=浣犵殑鍥哄畾magic
 ## 浠撳簱鍦板潃
 
 - [GitHub 浠撳簱](https://github.com/GodDaddy-one/edge-node-platform)
+
 

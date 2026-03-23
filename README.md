@@ -238,7 +238,7 @@ This script will:
 If you want a single entry script directly from GitHub, use:
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/GodDaddy-one/edge-node-platform/main/deploy.sh)
+bash <(curl -fsSL https://gitee.com/GodDaddy-one/edge-node-platform/raw/main/deploy.sh)
 ```
 
 It will show a simple menu:
@@ -250,9 +250,9 @@ It will show a simple menu:
 You can also call actions directly:
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/GodDaddy-one/edge-node-platform/main/deploy.sh) install
-bash <(curl -fsSL https://raw.githubusercontent.com/GodDaddy-one/edge-node-platform/main/deploy.sh) update
-bash <(curl -fsSL https://raw.githubusercontent.com/GodDaddy-one/edge-node-platform/main/deploy.sh) uninstall
+bash <(curl -fsSL https://gitee.com/GodDaddy-one/edge-node-platform/raw/main/deploy.sh) install
+bash <(curl -fsSL https://gitee.com/GodDaddy-one/edge-node-platform/raw/main/deploy.sh) update
+bash <(curl -fsSL https://gitee.com/GodDaddy-one/edge-node-platform/raw/main/deploy.sh) uninstall
 ```
 
 Notes:
@@ -1013,4 +1013,5 @@ To reach a practical testable release faster, continue in this order:
 3. move backend persistence to database
 4. add deployment environment configuration
 5. internal test and verify real workflows
+
 
